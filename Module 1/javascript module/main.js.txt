@@ -1,0 +1,97 @@
+// main.js
+
+// 1. JavaScript Basics & Setup
+console.log("Welcome to the Community Portal");
+alert("Page is fully loaded!");
+
+// 2. Syntax, Data Types, and Operators
+const eventName = "Community Yoga Session";
+const eventDate = "2025-06-10";
+let availableSeats = 30;
+
+const eventDetails = `${eventName} on ${eventDate}, Seats: ${availableSeats}`;
+console.log(eventDetails);
+
+// 3. Conditionals, Loops, and Error Handling
+let events = [
+    { name: "Yoga", date: "2025-06-10", seats: 10 },
+    { name: "Cooking Workshop", date: "2025-06-15", seats: 0 },
+    { name: "Art Class", date: "2025-06-20", seats: 5 },
+];
+
+function displayEvents() {
+    const eventsDiv = document.getElementById('events');
+    eventsDiv.innerHTML = "";
+    events.forEach(event => {
+        if (event.seats > 0) {
+            eventsDiv.innerHTML += `<p>${event.name} on ${event.date} - Seats: ${event.seats}</p>`;
+        }
+    });
+}
+
+// 4. Functions, Scope, Closures, Higher-Order Functions
+function addEvent(name, date, seats) {
+    events.push({ name, date, seats });
+}
+
+function registerUser(eventName) {
+    try {
+        let event = events.find(e => e.name === eventName);
+        if (event && event.seats > 0) {
+            event.seats--;
+            console.log(`Registered for ${event.name}. Remaining seats: ${event.seats}`);
+        } else {
+            console.log(`Registration failed. No seats available or event not found.`);
+        }
+    } catch (error) {
+        console.error("Error during registration:", error);
+    }
+}
+
+function filterEventsByCategory(category) {
+    return events.filter(event => event.name.toLowerCase().includes(category.toLowerCase()));
+}
+
+function dynamicSearch(filterFunc, keyword) {
+    const filtered = filterFunc(keyword);
+    console.log("Filtered Events:", filtered);
+}
+
+// Example closures
+function categoryTracker(category) {
+    let totalRegistrations = 0;
+    return function register() {
+        totalRegistrations++;
+        console.log(`Total registrations for ${category}: ${totalRegistrations}`);
+    };
+}
+
+// 5. Objects and Prototypes
+function Event(name, date, seats) {
+    this.name = name;
+    this.date = date;
+    this.seats = seats;
+}
+
+Event.prototype.register = function () {
+    if (this.seats > 0) {
+        this.seats--;
+        console.log(`Registered for ${this.name}. Seats left: ${this.seats}`);
+    } else {
+        console.log(`${this.name} is full.`);
+    }
+};
+
+// Run display
+displayEvents();
+
+// Example usage:
+addEvent("Music Night", "2025-06-25", 20);
+registerUser("Yoga");
+displayEvents();
+
+const yogaTracker = categoryTracker("Yoga");
+yogaTracker();
+yogaTracker();
+
+dynamicSearch(filterEventsByCategory, "art");

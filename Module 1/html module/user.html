@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Event Preferences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f7f7f7;
+    }
+
+    select, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    #status {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Select Your Preferred Event Type</h2>
+
+  <select id="eventSelect" onchange="savePreference()">
+    <option value="">-- Choose an Event Type --</option>
+    <option value="picnic">Community Picnic</option>
+    <option value="workshop">Art Workshop</option>
+    <option value="music">Music Night</option>
+  </select>
+
+  <div id="status"></div>
+
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+  <script>
+    // Load preference on page load
+    window.onload = function () {
+      const savedPreference = localStorage.getItem("preferredEvent");
+      if (savedPreference) {
+        document.getElementById("eventSelect").value = savedPreference;
+        document.getElementById("status").textContent = `Restored preference: ${savedPreference}`;
+      }
+    };
+
+    // Save selected preference to localStorage
+    function savePreference() {
+      const selectedValue = document.getElementById("eventSelect").value;
+      if (selectedValue) {
+        localStorage.setItem("preferredEvent", selectedValue);
+        sessionStorage.setItem("lastSelected", selectedValue); // Optional session storage use
+        document.getElementById("status").textContent = `Saved preference: ${selectedValue}`;
+      } else {
+        localStorage.removeItem("preferredEvent");
+        document.getElementById("status").textContent = "Preference cleared.";
+      }
+    }
+
+    // Clear all preferences
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      document.getElementById("eventSelect").value = "";
+      document.getElementById("status").textContent = "All preferences cleared.";
+    }
+  </script>
+
+</body>
+</html>

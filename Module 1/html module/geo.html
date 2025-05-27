@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nearby Event Locator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #eef2f3;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #locationResult {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border-left: 4px solid #007BFF;
+      font-size: 1em;
+      max-width: 400px;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Find Nearby Events</h2>
+  <p>Click the button below to find your location and check for events nearby:</p>
+
+  <button onclick="findNearbyEvents()">Find Nearby Events</button>
+
+  <div id="locationResult"></div>
+
+  <script>
+    function findNearbyEvents() {
+      const output = document.getElementById("locationResult");
+      output.textContent = "Locating...";
+
+      if (!navigator.geolocation) {
+        output.innerHTML = "<span class='error'>Geolocation is not supported by your browser.</span>";
+        return;
+      }
+
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 10000, // 10 seconds
+        maximumAge: 0
+      };
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude.toFixed(5);
+          const lon = position.coords.longitude.toFixed(5);
+          output.innerHTML = `📍 Your coordinates:<br>Latitude: <strong>${lat}</strong><br>Longitude: <strong>${lon}</strong><br><br>✅ Searching for events near you...`;
+        },
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              output.innerHTML = "<span class='error'>❌ Permission denied. Please allow location access.</span>";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              output.innerHTML = "<span class='error'>⚠️ Location information is unavailable.</span>";
+              break;
+            case error.TIMEOUT:
+              output.innerHTML = "<span class='error'>⏱️ Request timed out. Try again.</span>";
+              break;
+            default:
+              output.innerHTML = "<span class='error'>❌ An unknown error occurred.</span>";
+              break;
+          }
+        },
+        options
+      );
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* Styles for the main Call-To-Action (CTA) button */
+.cta-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for CTA button */
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Container for event cards */
+.event-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title inside event cards */
+.event-card h3 {
+    margin-top: 0;
+    color: #2a7ae2;
+    font-size: 20px;
+}
+
+/* Paragraph inside event cards */
+.event-card p {
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.4;
+}

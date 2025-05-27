@@ -1,0 +1,31 @@
+/* Body with fallback background color and background image */
+body {
+  background-color: #004080; /* fallback navy blue */
+  background-image: url('cityscape.jpg'); /* replace with your image path */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: rgba(255, 255, 255, 0.9); /* white text with slight transparency */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Section headers with linear gradient background */
+section h2 {
+  background: linear-gradient(90deg, #0077cc, #00aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+/* Additional example for a smaller header with gradient */
+section h3 {
+  background: linear-gradient(45deg, #004080, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

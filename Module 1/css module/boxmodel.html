@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Box Model & Layout Control</title>
+<style>
+  /* Style for event cards */
+  .eventCard {
+    border: 2px solid #0077cc;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    background-color: #f0f8ff;
+    box-sizing: border-box;
+  }
+
+  /* Outline to highlight focused input fields */
+  input:focus, textarea:focus {
+    outline: 3px solid #ff6600;
+  }
+
+  /* Hide elements but keep space: visibility: hidden */
+  .hidden-visibility {
+    visibility: hidden;
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px dashed #999;
+  }
+
+  /* Remove elements from layout: display: none */
+  .hidden-display {
+    display: none;
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px dashed #999;
+  }
+</style>
+</head>
+<body>
+
+  <h1 style="text-align:center;">Box Model & Layout Control Demo</h1>
+
+  <div class="eventCard">
+    <h2>Community Cleanup</h2>
+    <p>Date: 2025-06-30</p>
+    <p>Location: Riverside Park</p>
+  </div>
+
+  <form style="max-width: 400px; margin: 20px auto;">
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" placeholder="Enter your name" /><br /><br />
+
+    <label for="comments">Comments:</label><br />
+    <textarea id="comments" name="comments" rows="4" placeholder="Your feedback"></textarea><br /><br />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="hidden-visibility">
+    This box is <strong>hidden with visibility: hidden;</strong><br />
+    It occupies space but is invisible.
+  </div>
+
+  <div class="hidden-display">
+    This box is <strong>hidden with display: none;</strong><br />
+    It does not occupy any space.
+  </div>
+
+  <p>Use your browser developer tools (right-click → Inspect) to see box model properties and experiment with margin, padding, border, and outline.</p>
+
+</body>
+</html>

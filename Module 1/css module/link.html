@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Link and List Styling</title>
+<style>
+  /* Link styling */
+  a:link {
+    color: #0077cc;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #551a8b;
+  }
+
+  a:hover {
+    color: #004080;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: #ff6600;
+  }
+
+  /* List styling */
+  ul {
+    list-style-type: disc; /* default bullet style */
+    list-style-position: inside;
+    padding-left: 20px;
+  }
+
+  /* Navigation menu (remove bullets) */
+  nav ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 5px 10px;
+  }
+
+  nav ul li a {
+    font-weight: bold;
+    color: #0077cc;
+  }
+
+  nav ul li a:hover {
+    color: #004080;
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <h2>Event Categories</h2>
+  <ul>
+    <li>Community</li>
+    <li>Education</li>
+    <li>Arts & Culture</li>
+    <li>Sports</li>
+  </ul>
+
+  <p>Visit our <a href="#">event calendar</a> to stay updated!</p>
+
+</body>
+</html>

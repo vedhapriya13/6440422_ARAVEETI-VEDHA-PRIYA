@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f2f2f2;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .charCount {
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    #eventImage {
+      width: 100%;
+      max-width: 300px;
+      margin-top: 20px;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    #eventImage.enlarged {
+      transform: scale(1.5);
+      border-color: #333;
+    }
+
+    #feeDisplay {
+      margin-top: 5px;
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Feedback Form</h2>
+
+  <form id="feedbackForm">
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" placeholder="e.g. 123-456-7890" onblur="validatePhone()" required>
+
+    <label for="event">Select Event</label>
+    <select id="event" onchange="showFee()">
+      <option value="">-- Select an Event --</option>
+      <option value="10">Picnic - $10</option>
+      <option value="20">Workshop - $20</option>
+      <option value="15">Music Night - $15</option>
+    </select>
+    <div id="feeDisplay"></div>
+
+    <label for="feedback">Your Feedback</label>
+    <textarea id="feedback" rows="4" onkeyup="countCharacters()"></textarea>
+    <div class="charCount">Characters: <span id="charCount">0</span></div>
+
+    <input type="submit" value="Submit Feedback" onclick="showConfirmation(event)">
+  </form>
+
+  <img src="event.jpg" alt="Event Photo" id="eventImage" ondblclick="enlargeImage()">
+
+  <script>
+    function validatePhone() {
+      const phoneInput = document.getElementById('phone');
+      const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+      if (!phonePattern.test(phoneInput.value)) {
+        alert("Please enter a valid phone number (e.g. 123-456-7890).");
+        phoneInput.focus();
+      }
+    }
+
+    function showFee() {
+      const eventSelect = document.getElementById('event');
+      const feeDisplay = document.getElementById('feeDisplay');
+      const selectedFee = eventSelect.value;
+      if (selectedFee) {
+        feeDisplay.textContent = `Selected Event Fee: $${selectedFee}`;
+      } else {
+        feeDisplay.textContent = '';
+      }
+    }
+
+    function showConfirmation(e) {
+      e.preventDefault(); // Prevent actual form submission
+      alert("Thank you for your feedback!");
+    }
+
+    function enlargeImage() {
+      const img = document.getElementById('eventImage');
+      img.classList.toggle('enlarged');
+    }
+
+    function countCharacters() {
+      const feedback = document.getElementById('feedback').value;
+      document.getElementById('charCount').textContent = feedback.length;
+    }
+  </script>
+
+</body>
+</html>

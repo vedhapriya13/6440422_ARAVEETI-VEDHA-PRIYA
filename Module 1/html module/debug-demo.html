@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Debugging Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f0f8ff;
+    }
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: #4287f5;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Debugging with Chrome DevTools</h1>
+
+  <div id="box">Click me!</div>
+
+  <script>
+    const box = document.getElementById('box');
+
+    // Log info
+    console.log("Page loaded. Ready to debug!");
+
+    // Add click event listener to box
+    box.addEventListener('click', () => {
+      console.log("Box clicked!");
+      // Intentional error for testing
+      try {
+        undefinedFunction(); // This will throw an error
+      } catch (error) {
+        console.error("Caught an error:", error);
+      }
+    });
+
+    // Example function to add a breakpoint on this line
+    function calculateSum(a, b) {
+      const result = a + b;  // <-- Add breakpoint here in DevTools Sources tab
+      console.log(`Sum of ${a} and ${b} is ${result}`);
+      return result;
+    }
+
+    // Call the function to test breakpoint
+    calculateSum(5, 10);
+  </script>
+
+</body>
+</html>

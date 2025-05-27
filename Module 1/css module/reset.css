@@ -1,0 +1,40 @@
+/* Universal selector to reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Helps with sizing consistency */
+}
+
+/* Element selector to style all <h2> elements */
+h2 {
+    color: #2a7ae2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 12px;
+}
+
+/* ID selector for the main banner/header */
+#mainHeader {
+    background-color: #007BFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Class selector for event containers */
+.eventCard {
+    background-color: #f0f4ff;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+/* Grouping selector to style h3 and p together */
+h3, p {
+    color: #333333;
+    font-family: Arial, sans-serif;
+    margin-bottom: 8px;
+}

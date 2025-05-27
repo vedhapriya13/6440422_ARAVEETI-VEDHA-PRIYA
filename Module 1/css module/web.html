@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Community Portal</title>
+<style>
+  /* Base styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 5vw;
+    color: #333;
+  }
+
+  header {
+    background: #0077cc;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 3vw; /* responsive font size */
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background: #004080;
+    padding: 1rem 0;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.5vw;
+    font-weight: bold;
+    font-size: 1.5vw;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #ffcc00;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 2vh auto;
+  }
+
+  img.responsive {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto 2vh auto;
+  }
+
+  h2 {
+    font-size: 2.5vw;
+    margin-bottom: 1vh;
+  }
+
+  p {
+    font-size: 1.8vw;
+    line-height: 1.6;
+  }
+
+  /* Media Query for screens smaller than 768px */
+  @media (max-width: 768px) {
+    header {
+      font-size: 6vw;
+      padding: 1rem 0;
+    }
+
+    nav {
+      flex-direction: column;
+      padding: 0.5rem 0;
+    }
+
+    nav a {
+      margin: 0.5vh 0;
+      font-size: 5vw;
+    }
+
+    main {
+      padding: 0 2vw;
+    }
+
+    img.responsive {
+      max-width: 100%;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+
+    p {
+      font-size: 4vw;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  Community Event Portal
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Events</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+</nav>
+
+<main>
+  <h2>Welcome to Our Summer Festival</h2>
+  <img class="responsive" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Summer Festival" />
+  <p>
+    Join us for an exciting summer filled with music, food, and community spirit! Our event features local artists, delicious vendors, and fun activities for all ages.
+  </p>
+</main>
+
+</body>
+</html>

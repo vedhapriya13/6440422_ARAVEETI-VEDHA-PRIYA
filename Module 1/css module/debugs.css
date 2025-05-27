@@ -1,0 +1,66 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #0077cc;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #004080;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px 15px;
+  font-weight: bold;
+}
+
+/* Event card styling */
+.eventCard {
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  header h1 {
+    font-size: 6vw;
+  }
+
+  .eventCard {
+    margin: 10px 20px;
+    padding: 15px;
+  }
+
+  .eventCard h2 {
+    font-size: 5vw;
+  }
+
+  .eventCard p {
+    font-size: 4vw;
+  }
+}
